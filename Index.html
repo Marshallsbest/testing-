@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top"/>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="Order Form" content="a web appp used for ordering products from Zeero Smoke.">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+     <title>Zeero Smoke Oeder Sheet</title>
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-yellow.min.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <style>  <!-- This will fix the scroolbar caused by materialze.css -->
+          [class]{will-change:unset}[type=checkbox]:checked+label:before{-webkit-backface-visibility:visible;backface-visibility:visible}
+      </style>  
+      <style>
+        main {
+              top: 40px;
+              bottom: 20px;
+              width: 100%
+              } 
+        body{margin:5;width:100%;height:100%;overflow-x:hidden}footer,header{position:fixed;width:100%}header{top:0}footer{bottom:0}main{position:absolute;border-top:2px solid #F2F2F2;border-bottom:2px solid #F2F2F2;overflow:auto;overflow-x:hidden}
+      </style>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script> // UNTESTED SCRIPT !!!! PROCEED ACCORDINGLY
+         $(function() {
+      var data = <?= data ?> ;
+      data = JSON.parse(data);
+      var c = $('#content');
+      var content = '' + '<div class="row">' + '<div class="col s12">' +
+          '  <ul class="tabs">';
+      for (i in data) {
+          var title = data[i][0];
+          var desc = data[i][1];
+          var tab = '<li class="tab col s1"><a href="#' + title + '">' +
+              title + '</a></li>'
+          content += tab;
+      }
+      content += '</ul></div>';
+      for (i in data) {
+          var title = data[i][0];
+          var desc = data[i][1];
+          var tab = '<div id="' + title + '" class="col s12">' +
+              '<ul class="collapsible popout" data-collapsible="accordion">';
+          for (var j = 1; j < desc.length; j++) {
+              var lTitle = desc[j][0];
+              var lDesc = desc[j][1];
+              var li = '' + '<li>' + '<div class="collapsible-header">' +
+                  lTitle + '</div>' +
+                  '<div class="collapsible-body"><p>' + lDesc +
+                  '</p></div>' + '</li>';
+              tab += li;
+          }
+          tab += '</ul></div>';
+          content += tab;
+      }
+      content += '</div>';
+      console.log(content);
+      c.html(content);
+      $('.collapsible').collapsible({
+          //      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+      });
+      $('ul.tabs').tabs();
+  });
+ 
+        </script>
+      <?!= HtmlService.createHtmlOutputFromFile('headScript').getContent(); ?>   
+      <?!= HtmlService.createHtmlOutputFromFile('styles').getContent(); ?>
+  </head>
+  <body> 
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-shadow--16dp">
+        <div class="mdl-layout__header-row ">
+        <!-- Title -->
+          <span class="mdl-layout-title">Zeero Smoke Order Form</span>
+        <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+        <!-- Navigation -->
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-card mdl-shadow--4dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Zeero Smoke Product Lines</h2>
+          </div><!--End MDL Card Title -->
+          <div class="mdl-card__supporting-text">
+            <p> Please select the lines you would like to order from by toggling the swtich!</p>
+            <span> <p> Each line is denoted with an icon thatbestrepresents that products role. ex:<i class="material-icons">opacity</i> = Ejuice</p></span>
+            <p> If you find somethintg goes wrong please don't hesitate to contact Luke Marshall on mobile (647)-525-6646 or by email luke@zeerosmoke.com</p>
+            <p> Thank you for choosing ZeeroSmoke ! ! ! </p>
+         
+        <!--  <?!//= HtmlService.createHtmlOutputFromFile('plines').getContent(); ?> -->
+           </div><!-- MDL Card Supporting text -->
+        </div><!-- MDL Card -->
+      <div class="mdl-card mdl-shadow--4dp">
+         <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Order Sheet</h2>
+         </div><!-- Card Title end -->
+         <div class="mdl-card__supporting-text">
+            <!-- Begining of the user form -->
+         <form id="orderIn" onsubmit=handleFormSubmit(this)>
+            <div id="content" class="container"></div>
+       <!--     <table id="Ejuice" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" >
+             <thead>
+      
+  
+  
+              <?// for(i=0;i<data.length;i++){ ?>
+               <tr id="poorBoy">
+                  <?// for(j=1;j<datapb.length[i];j++){ ?>
+                <th><?// data[i][j] ?></th>
+                <th><? //data[i][j] ?></th>
+                <th><?// data[i][j] ?></th>
+                <?// }; ?>
+                </tr>
+              <?// };?>
+             </thead>
+             <tbody id="infoRows">
+               <tr>
+                 <td>
+                   <div class="mdl-spinner mdl-js-spinner is-active"></div>
+                 </td>
+               </tr>
+             </tbody> 
+            </table> -->
+            <div class="mdl-layout-spacer">                              
+              <button type="submit" value="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Send Me My Invoice</button>
+            </div> <!-- mdl spacer end -->
+          </form>
+          <div id="output"></div>
+        </div><!-- MDL Supporting yext end -->
+      </div><!-- MDL Card 10 Cell end -->
+        <footer class="mdl-mini-footer">
+         <div class="container center-align" style="margin-top:10px">
+          <div class="mdl-mini-footer__left-section">
+            <div class="mdl-logo">Zeero Smoke International</div>
+              <ul class="mdl-mini-footer__link-list">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">"Privacy & Terms"</a></li>
+              </ul>      
+            </div>
+            </div>
+          </footer> 
+        </main>
+      </div> <!-- MDL Layout -->
+    <?!= HtmlService.createHtmlOutputFromFile('orderScript').getContent(); ?>
+  </body>
+</html>
+

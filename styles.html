@@ -1,0 +1,147 @@
+  <style>
+
+    body::before {
+        background-size: cover;
+        background-attachment: fixed;
+        content: '';
+        will-change: transform;
+        z-index: -1;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        position: fixed;
+    }
+    @media (max-width: 512px)  and (min-resolution: 1.5dppx),
+           (max-width: 1024px) and (max-resolution: 1.5dppx) {
+      body::before {
+        background-color: #f9f8f3;
+      }
+     .mdl-list {
+        width: 100%;
+      }      
+      .mdl-card {
+        width: 100%;
+        box-sizing:border-box;
+        display: flex;
+        margin:auto;
+    }
+    
+    }
+    @media (min-width: 513px)  and (max-width: 1024px) and (min-resolution: 1.5dppx),
+           (min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx)  {
+      body::before {
+        background-color: #f9f8f3;
+      }
+      .mdl-list {
+        width: 70%;
+      }   
+      .mdl-card {
+        width: 90%;
+        box-sizing:border-box;
+        display: flex;
+        margin:auto;
+    }
+    }
+    @media (min-width: 1025px) and (min-resolution: 1.5dppx),
+           (min-width: 2049px) and (max-resolution: 1.5dppx) {
+      body::before {
+        background-color: #f9f8f3;
+     }
+      .mdl-list {
+        width: 50%;
+      }      
+     .mdl-card {
+        width: 80%;
+        box-sizing:border-box;
+        display: flex;
+        margin:auto;
+    }
+   }
+    body  {
+      font-family: 'Roboto', 'Helvetica', sans-serif;
+    }
+     .mdl-layout-title{
+     float: right;
+     }
+     .mdl-layout__header,
+     .mdl-layout__drawer-button {
+      color:white;
+    }
+     .mdl-layout__header {
+      background-color: #102027;
+    }
+     .mdl-layout .mdl-layout__content {;
+      position: relative;
+      -webkit-overflow-scrolling: touch;
+    }
+     .mdl-card{
+     margin-top: 25px;
+     }
+     .mdl-card__title {
+      flex-grow: 1;
+      color:#fff;
+      background-color:#37474f;
+    }
+     
+     .mdl-card__supporting-text {
+      /*display: flex;*/
+      align-items: left;
+      overflow: none;
+      /*flex-direction:row;*/
+   }
+      .mdl-data-table td {
+      height: 20px;
+      padding: 5px 5px;
+   }
+       table{
+       display: flex;
+       margin:auto;
+       }
+       form{
+       display: flex;
+       flex-direction:column;
+       position: relative;
+   }
+   
+     .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab{
+      margin: 1rem;
+      color: rgb(66,66,66);
+       background-color: #ffeb3b;
+      float: right;
+   }
+  
+     .list-2-wide {
+      max-width: 45%;
+      
+   }
+    /* Workaround for Firefox.
+     * User agent stylesheet kept overwriting the font in FF only.
+     */
+     form .mdl-textfield .mdl-textfield__input {
+      font-family: 'Roboto', 'Helvetica', sans-serif;
+    }
+     form .mdl-textfield input,
+     form .mdl-textfield textarea {
+      resize:0%;
+    }
+     .section-spacer {
+      flex-grow: 1;
+    }
+   
+    /* Fixes for IE 10 */
+   /* .mdl-grid {
+      display: flex !important;
+    }*/
+     .mdl-mini-footer {
+      color:#fff;
+      margin-top: 80px;
+      height: 120px;
+      padding: 40px;
+      align-items: center;
+      background-color: #102027;
+      box-sizing: border-box;
+    }
+
+
+</style>

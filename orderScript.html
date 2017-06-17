@@ -1,0 +1,95 @@
+<!-- Load the jQuery and jQuery UI libraries. -->
+<!-- <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script> -->
+
+<script>
+  /* function updateDisplay(newHTML) {
+    console.log('newHTML: ' + newHTML);
+    document.getElementById('pgOne').style.display = 'inline';// Hide page one
+    document.getElementById('pgTwo').innerHTML = newHTML;//inject the new HTML - not shown yet
+    document.getElementById('pgTwo').style.display = 'inline';// Show page two
+  };
+  */
+function showPoorBoy() {
+    var poorBoy = document.getElementById('Ejuice');
+    if (poorBoy.style.display === 'none') {
+        poorBoy.style.display = 'inline';
+    } else {
+        poorBoy.style.display = 'none';
+    }
+}
+  
+
+
+// When the page loads. New bindings must be made for each new product sheet
+/*  
+  function loadUpProdLines() {
+    google.script.run.withSuccessHandler(showProductLines)
+        .withFailureHandler(showError)
+        .getProdLines(
+          return SpreadsheetApp.openById('1Yi4txfn330tpoWmGTrPLycV3-zqmkKjHMtO59IHsnjk').getSheets();
+        );
+  }
+  
+  /**
+   * Show the returned Product lines in a table of check box switch.
+   * @param {Array.<Object>} prodLineNames The Product Lines to show.
+   */
+  /*
+  function showProductLines(prodLines){
+    prodLineNames.forEach(function (prodline){ 
+    var option =  $('<option>')
+          .attr('value', prodline.id)
+          .text(prodline.name);
+      tableList.append(option);
+    });
+    loadProdTables();
+
+
+var tableList = $('#prodlines');
+    var tableData = tableList.data.getData;
+     for (i = 0 ; i >tableData.length; i++){
+       if ( i == 0 ) { }
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+/* // The code in this function runs when the page is loaded.
+  $(function() {
+    google.script.run.withSuccessHandler(showheaders)
+        .getLotsOfThings(getHvd);
+  });
+  function showHeaders(headers) {
+    var list = $('#headers');
+      list.empty();
+      
+        for (var j = 0; j < headers.length; j++) {
+          list.append('<th class="mdl-data-table__cell--non-numeric">'+ data[0][j] +'</th>');
+          };}
+          
+          
+  $(function() {
+    google.script.run.withSuccessHandler(showInfoRows)
+        .getLotsOfThings(getHvd);
+  });
+  function showInfoRows(infoRows) {
+    var Rows = $('#infoRows');
+      Rows.empty();
+      for (var i = 0; i < infoRows.length; i++){ if (i = 0) {
+      Rows.append("<tr>"+
+      for (var j = 0; j < infoRows[i].length; j++) {
+          '<td class="mdl-data-table__cell--non-numeric">'+ data[i][j] +'</td>'
+          });
+          for (var i = 0; i < data.length; i++){ if (i == 0) { 
+    }
+  }};                          
+       for (var j = 0; j < data[i].length; j++) {
+               <td class="mdl-data-table__cell--non-numeric"> data[i][j]</td>
+             } Logger.log("hvddrun")
+               <td>
+                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="data[i][1]">
+                     <label class="mdl-textfield__label">Order Qty...  </label> 
+                     <span class="mdl-textfield__error">Input is not a number!</span>
+                 </div>
+               </td>*/ 
+    </script>
